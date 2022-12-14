@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { SafeArea, Search, Header, HeaderTitle } from '../../components/index';
 import {
   Ionicons,
-  Fontisto,
   Octicons,
   Feather,
   MaterialCommunityIcons,
+  AntDesign,
 } from '@expo/vector-icons';
 import { TextInput } from 'react-native';
 import axios from 'axios';
@@ -123,9 +123,14 @@ export const SearchScreen = ({ navigation }) => {
   return (
     <SafeArea>
       <Header>
-        <Ionicons name='chevron-back' size={24} color='#FFFFFF' />
+        <Ionicons
+          name='chevron-back'
+          size={24}
+          color='#FFFFFF'
+          onPress={() => navigation.goBack()}
+        />
         <HeaderTitle>Search</HeaderTitle>
-        <Fontisto name='favorite' size={26} color='#FFFF' />
+        <AntDesign name='infocirlceo' size={22} color='#FFF' />
       </Header>
       <Search>
         <TextInput

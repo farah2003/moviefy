@@ -1,12 +1,18 @@
 import { Text, View, StyleSheet, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
 import { SafeArea, Header, HeaderTitle } from '../../components';
 
-export const WatchlistScreen = () => {
+export const WatchlistScreen = ({ navigation }) => {
   return (
     <SafeArea>
       <Header>
-        <Ionicons name='chevron-back' size={24} color='#FFFFFF' />
+        <Ionicons
+          name='chevron-back'
+          size={24}
+          color='#FFFFFF'
+          onPress={() => navigation.goBack()}
+        />
         <HeaderTitle style={{ marginHorizontal: 100 }}>Watch List</HeaderTitle>
       </Header>
       <View style={styles.content}>

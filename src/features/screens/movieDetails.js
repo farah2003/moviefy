@@ -20,6 +20,7 @@ export const MovieDetails = ({
   route: {
     params: { name, id },
   },
+  navigation,
 }) => {
   const [details, setDetails] = useState({
     title: '',
@@ -67,7 +68,12 @@ export const MovieDetails = ({
   return (
     <SafeArea>
       <Header>
-        <Ionicons name='chevron-back' size={24} color='#FFFFFF' />
+        <Ionicons
+          name='chevron-back'
+          size={24}
+          color='#FFFFFF'
+          onPress={() => navigation.goBack()}
+        />
         <HeaderTitle>Details</HeaderTitle>
         <Fontisto
           name='favorite'
