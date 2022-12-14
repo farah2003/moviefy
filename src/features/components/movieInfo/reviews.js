@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { FlatList } from 'react-native';
 import axios from 'axios';
 import {
@@ -11,8 +11,10 @@ import {
   Reviewer,
   Description,
 } from '../../../components/index';
+import { MoiveContext } from '../../../hooks/context';
 
 export const Reviews = () => {
+  const { movieId } = useContext(MoiveContext);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export const Reviews = () => {
         const {
           data: { results },
         } = await axios.get(
-          `https://api.themoviedb.org/3/movie/550/reviews?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US&page=1`
+          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=0c d5b087887762448dcaa7155b7e23a2&language=en-US&page=1`
         );
         setData(results);
       } catch (e) {

@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { CastImage, CastContainer, Container } from '../../../components/index';
-
+import { MoiveContext } from '../../../hooks/context';
 import { FlatList, Text } from 'react-native';
 export const Cast = () => {
+  const { movieId } = useContext(MoiveContext);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchCast = async () => {
-      let id = 5653;
       try {
         const {
           data: { cast },
         } = await axios.get(
-          `https://api.themoviedb.org/3/movie/5653/credits?api_key=bf42acf712bba686cfff9820897f4edb&language=en-US`
+          `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=bf42acf712bba686cfff9820897f4edb&language=en-US`
         );
         setData(cast);
       } catch (e) {

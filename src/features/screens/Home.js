@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Text as TextSvg } from 'react-native-svg';
 import { Octicons } from '@expo/vector-icons';
@@ -12,6 +12,7 @@ import {
   MovieImageWrapper,
   SuggestedMovieImage,
 } from '../../components/index';
+import { MoiveContext } from '../../hooks/context';
 import { CategoriesNavigator } from '../../navigation/index';
 
 const Item = ({ src, number }) => (
@@ -37,6 +38,8 @@ const Item = ({ src, number }) => (
 );
 
 export const HomeScreen = ({ navigation }) => {
+  const { setMovieId } = useContext(MoiveContext);
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState([]);
   useEffect(() => {
@@ -66,12 +69,13 @@ export const HomeScreen = ({ navigation }) => {
   const renderItem = ({ item, index }) => {
     return (
       <Pressable
-        onPress={() =>
+        onPress={() => {
+          setMovieId(item.id);
           navigation.navigate('MovieDeatails', {
             name: item.original_title,
             id: item.id,
-          })
-        }
+          });
+        }}
       >
         <Item
           number={index}

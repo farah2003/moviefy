@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { ImageBackground, View, StyleSheet, Image, Text } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 import { Ionicons, Fontisto } from '@expo/vector-icons';
 import { SafeArea, Header } from '../../components/index';
 import { MovieInfoNavigtor } from '../../navigation/index';
+
 export const MovieDetails = ({
   route: {
     params: { name, id },
@@ -50,7 +51,7 @@ export const MovieDetails = ({
       }
     };
     fetchDetails();
-  });
+  }, []);
 
   const { posterImg, movieImg, vote, category, year, title } = details;
   return (
