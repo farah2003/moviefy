@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { SafeArea, Search, Header, HeaderTitle } from '../../components/index';
 import {
   Ionicons,
@@ -17,9 +17,14 @@ import {
   MovieTitle,
   SearchListImage,
 } from '../../components/index';
+import { MoiveContext } from '../../hooks/context';
 export const SearchScreen = ({ navigation }) => {
+  const { setMovieId } = useContext(MoiveContext);
   const [value, setValue] = useState('');
   let [data, setData] = useState([]);
+  useEffect(() => {
+    setValue('');
+  }, []);
   fetchMovies = async () => {
     let searchedList = [];
     try {
@@ -43,6 +48,7 @@ export const SearchScreen = ({ navigation }) => {
       console.log(e);
     }
   };
+
   const Item = ({ title, vote, year, src }) => {
     return (
       <SearchListItem>
@@ -104,7 +110,7 @@ export const SearchScreen = ({ navigation }) => {
     return (
       <Pressable
         onPress={() => {
-          // setMovieId(item.id);
+          setMovieId(item.id);
           navigation.navigate('MovieDeatails', {
             name: item.title,
             id: item.id,
