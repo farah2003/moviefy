@@ -1,9 +1,19 @@
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useEffect, useState, useContext } from 'react';
-import { ImageBackground, View, StyleSheet, Image, Text } from 'react-native';
-import { SvgUri } from 'react-native-svg';
-import { Ionicons, Fontisto } from '@expo/vector-icons';
-import { SafeArea, Header } from '../../components/index';
+import { View, StyleSheet, Image, Text } from 'react-native';
+import {
+  Ionicons,
+  Fontisto,
+  Feather,
+  MaterialCommunityIcons,
+} from '@expo/vector-icons';
+import {
+  SafeArea,
+  Header,
+  Wapper,
+  ImageBackgroundMoviePoster,
+  HeaderTitle,
+} from '../../components/index';
 import { MovieInfoNavigtor } from '../../navigation/index';
 
 export const MovieDetails = ({
@@ -58,24 +68,23 @@ export const MovieDetails = ({
     <SafeArea>
       <Header>
         <Ionicons name='chevron-back' size={24} color='#FFFFFF' />
-        <Text style={styles.title}>Details</Text>
+        <HeaderTitle>Details</HeaderTitle>
         <Fontisto
           name='favorite'
           size={26}
           color='#FFFF'
-          style={styles.favorite}
+          style={{ marginTop: 3, marginLeft: 40 }}
           width='327'
           height='35'
         />
       </Header>
-      <View style={styles.container}>
-        <ImageBackground
+      <Wapper>
+        <ImageBackgroundMoviePoster
           resizeMode='stretch'
           source={{
             uri: `https://image.tmdb.org/t/p/original${movieImg}`,
           }}
-          style={styles.cover}
-        ></ImageBackground>
+        ></ImageBackgroundMoviePoster>
         <View style={styles.content}>
           <Image
             source={{
@@ -85,34 +94,39 @@ export const MovieDetails = ({
           />
           <Text style={{ ...styles.text }}>{title}</Text>
         </View>
-        {/* <View style={styles.info}>
-          <Image
-            source={require('../../../../assets/Ticket.png')}
-            style={styles.icons}
-          />
-          <Image
-            source={require('../../../../assets/CalendarBlank.png')}
-            style={styles.icons}
-          />
-          <Image
-            source={require('../../../../assets/Clock.png')}
-            style={styles.icons}
-          />
-        </View> */}
-      </View>
+        <View style={styles.info}>
+          <Text style={styles.textInfo}>
+            <Feather
+              name='calendar'
+              size={20}
+              color='#92929D'
+              style={{ marginRight: 10 }}
+            />{' '}
+            {year}
+            {'  '} | {'  '}
+            <Feather
+              name='clock'
+              size={20}
+              color='#92929D'
+              style={{ marginRight: 10 }}
+            />{' '}
+            139 Minutes {'  '}| {'  '}
+            <MaterialCommunityIcons
+              name='ticket-outline'
+              size={20}
+              color='#92929D'
+              style={{ marginRight: 10 }}
+            />{' '}
+            {category}
+          </Text>
+        </View>
+      </Wapper>
       <MovieInfoNavigtor id={id} />
     </SafeArea>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 0.6,
-  },
-  cover: {
-    width: '100%',
-    height: 190,
-  },
   movieImg: {
     height: 150,
     width: 120,
@@ -131,31 +145,15 @@ const styles = StyleSheet.create({
     color: '#ffff',
     marginLeft: 10,
   },
-  icons: {
-    width: 100,
-    height: 100,
-    padding: 2,
-    borderRightColor: '#696974',
-  },
   info: {
-    flexDirection: 'row',
-  },
-  header: {
-    flexDirection: 'row',
-    paddingHorizontal: 24,
-    flex: 0.1,
+    width: '100%',
     alignContent: 'center',
     alignItems: 'center',
-    marginVertical: 10,
   },
-  title: {
-    fontSize: 18,
-    lineHeight: 20,
-    fontWeight: '600',
-    color: '#FFFFFF',
-    marginHorizontal: 120,
-  },
-  favorite: {
-    marginTop: 3,
+  textInfo: {
+    fontSize: 14,
+    color: '#92929D',
+    fontFamily: 'Montserrat',
+    marginBottom: 10,
   },
 });

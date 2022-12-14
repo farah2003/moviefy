@@ -17,7 +17,7 @@ import {
   MovieTitle,
   SearchListImage,
 } from '../../components/index';
-export const SearchScreen = () => {
+export const SearchScreen = ({ navigation }) => {
   const [value, setValue] = useState('');
   let [data, setData] = useState([]);
   fetchMovies = async () => {
@@ -124,7 +124,7 @@ export const SearchScreen = () => {
     <SafeArea>
       <Header>
         <Ionicons name='chevron-back' size={24} color='#FFFFFF' />
-        <HeaderTitle>Watch List</HeaderTitle>
+        <HeaderTitle>Search</HeaderTitle>
         <Fontisto name='favorite' size={26} color='#FFFF' />
       </Header>
       <Search>

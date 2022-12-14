@@ -2,11 +2,12 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { CastImage, CastContainer, Container } from '../../../components/index';
 import { MoiveContext } from '../../../hooks/context';
-import { FlatList, Text } from 'react-native';
+import { FlatList, Text, ActivityIndicator } from 'react-native';
 export const Cast = () => {
   const { movieId } = useContext(MoiveContext);
   const [data, setData] = useState([]);
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchCast = async () => {
@@ -17,8 +18,12 @@ export const Cast = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=bf42acf712bba686cfff9820897f4edb&language=en-US`
         );
         setData(cast);
+        setError(false);
+        setLoading(false);
       } catch (e) {
-        console.log(e);
+        setData([]);
+        setLoading(false);
+        setError(ture);
       }
     };
     fetchCast();
@@ -45,13 +50,25 @@ export const Cast = () => {
   };
 
   return (
-    <Container>
-      <FlatList
-        numColumns={2}
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    </Container>
+    <>
+      {loading ? (
+        <ActivityIndicator size='large' color='#FFFF' />
+      ) : (
+        <>
+          {error ? (
+            <Text>fhgh</Text>
+          ) : (
+            <Container>
+              <FlatList
+                numColumns={2}
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id}
+              />
+            </Container>
+          )}
+        </>
+      )}
+    </>
   );
 };

@@ -1,10 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { AboutMovieView, OverView } from '../../../components/index';
+import { Text, ActivityIndicator } from 'react-native';
 import { MoiveContext } from '../../../hooks/context';
 export const Overview = () => {
   const { movieId } = useContext(MoiveContext);
   const [overview, setOverview] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchDetails = async () => {
@@ -16,16 +19,32 @@ export const Overview = () => {
           { cancelToken: source.token }
         );
         setOverview(overview);
+        setError(false);
+        setLoading(false);
       } catch (e) {
-        console.log(e);
+        setLoading(false);
+        setError(ture);
+        setOverview([]);
       }
     };
     fetchDetails();
   }, []);
 
   return (
-    <AboutMovieView>
-      <OverView>{overview}</OverView>
-    </AboutMovieView>
+    <>
+      {loading ? (
+        <ActivityIndicator size='large' color='#FFFF' />
+      ) : (
+        <>
+          {error ? (
+            <Text>fhgh</Text>
+          ) : (
+            <AboutMovieView>
+              <OverView>{overview}</OverView>
+            </AboutMovieView>
+          )}
+        </>
+      )}
+    </>
   );
 };

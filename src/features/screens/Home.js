@@ -2,13 +2,19 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Text as TextSvg } from 'react-native-svg';
 import { Octicons } from '@expo/vector-icons';
-import { Image, FlatList, Pressable, TextInput } from 'react-native';
+import {
+  FlatList,
+  Pressable,
+  TextInput,
+  ActivityIndicator,
+  Text,
+} from 'react-native';
 import {
   SafeArea,
   Search,
   Question,
   NumberSvg,
-  Suggestions,
+  NavigationWapper,
   MovieImageWrapper,
   SuggestedMovieImage,
 } from '../../components/index';
@@ -41,7 +47,8 @@ export const HomeScreen = ({ navigation }) => {
   const { setMovieId } = useContext(MoiveContext);
 
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   useEffect(() => {
     let movies = [];
     const source = axios.CancelToken.source();
@@ -58,8 +65,12 @@ export const HomeScreen = ({ navigation }) => {
           movies.push({ backdrop_path, id, original_title });
         });
         setData(movies);
+        setLoading(false);
+        setError(false);
       } catch (e) {
-        console.log(e);
+        setData([]);
+        setError(ture);
+        setLoading(false);
       }
     };
     fetchMovies();
@@ -98,14 +109,25 @@ export const HomeScreen = ({ navigation }) => {
         <Octicons name='search' size={26} color='#67686D' />
       </Search>
 
-      <Suggestions>
-        <FlatList
-          horizontal
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-        />
-      </Suggestions>
+      <NavigationWapper>
+        {loading ? (
+          <ActivityIndicator size='large' color='#FFFF' />
+        ) : (
+          <>
+            {error ? (
+              <Text>fGHGFH</Text>
+            ) : (
+              <FlatList
+                horizontal
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id}
+              />
+            )}
+          </>
+        )}
+      </NavigationWapper>
+
       <CategoriesNavigator />
     </SafeArea>
   );

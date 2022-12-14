@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 import {
   Container,
@@ -16,7 +16,8 @@ import { MoiveContext } from '../../../hooks/context';
 export const Reviews = () => {
   const { movieId } = useContext(MoiveContext);
   const [data, setData] = useState([]);
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchCast = async () => {
@@ -27,8 +28,12 @@ export const Reviews = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=0c d5b087887762448dcaa7155b7e23a2&language=en-US&page=1`
         );
         setData(results);
+        setError(false);
+        setLoading(false);
       } catch (e) {
-        console.log(e);
+        setLoading(false);
+        setError(ture);
+        setData([]);
       }
     };
     fetchCast();
@@ -62,13 +67,25 @@ export const Reviews = () => {
 
   const renderItem = ({ item }) => <Item item={item} />;
   return (
-    <Container>
-      <FlatList
-        numColumns={1}
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    </Container>
+    <>
+      {loading ? (
+        <ActivityIndicator size='large' color='#FFFF' />
+      ) : (
+        <>
+          {error ? (
+            <Text>fhgh</Text>
+          ) : (
+            <Container>
+              <FlatList
+                numColumns={1}
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id}
+              />
+            </Container>
+          )}
+        </>
+      )}
+    </>
   );
 };

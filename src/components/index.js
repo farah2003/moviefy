@@ -16,7 +16,7 @@ import { Reviewer } from './utility/safeArea';
 import { Description } from './utility/safeArea';
 import { Question } from './utility/safeArea';
 import { NumberSvg } from './utility/safeArea';
-import { Suggestions } from './utility/safeArea';
+import { Wapper } from './utility/safeArea';
 import { MovieImageWrapper } from './utility/safeArea';
 import { SuggestedMovieImage } from './utility/safeArea';
 import { Header } from './utility/safeArea';
@@ -25,6 +25,8 @@ import {
   SearchListItem,
   MovieTitle,
   SearchListImage,
+  ImageBackgroundMoviePoster,
+  NavigationWapper,
 } from './utility/safeArea';
 
 export {
@@ -46,7 +48,7 @@ export {
   Description,
   Question,
   NumberSvg,
-  Suggestions,
+  Wapper,
   MovieImageWrapper,
   SuggestedMovieImage,
   Header,
@@ -55,4 +57,6 @@ export {
   MovieTitle,
   SearchListImage,
   Icons,
+  ImageBackgroundMoviePoster,
+  NavigationWapper,
 };

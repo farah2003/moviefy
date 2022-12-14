@@ -1,4 +1,11 @@
-import { StatusBar, SafeAreaView, Image, View, Text } from 'react-native';
+import {
+  StatusBar,
+  SafeAreaView,
+  Image,
+  View,
+  Text,
+  ImageBackground,
+} from 'react-native';
 import styled from 'styled-components/native';
 import { Svg } from 'react-native-svg';
 
@@ -12,7 +19,7 @@ export const Container = styled(View)`
   background-color: #242a32;
 `;
 export const MovieContainer = styled(View)`
-  margin-horizontal: 4px;
+  margin-horizontal: 9px;
   margin-top: 20px;
 `;
 
@@ -23,8 +30,8 @@ export const CastContainer = styled(View)`
 
 export const MovieImage = styled(Image)`
   border-radius: 15;
-  width: 120px;
-  height: 170px;
+  width: 110px;
+  height: 155px;
   marginbottom: 10px;
 `;
 
@@ -105,7 +112,8 @@ export const Question = styled(Text)`
   line-height: 27;
   font-weight: 700;
   margin-horizontal: 20;
-  marign-vertical: 12;
+  margin-vertical: 12;
+  font-family: 'Poppins';
 `;
 
 export const NumberSvg = styled(Svg)`
@@ -113,8 +121,8 @@ export const NumberSvg = styled(Svg)`
   right: 40;
   top: 150;
 `;
-export const Suggestions = styled(View)`
-  flex: 0.63;
+export const Wapper = styled(View)`
+  flex: 0.9;
 `;
 export const MovieImageWrapper = styled(View)`
   padding: 5px;
@@ -166,4 +174,11 @@ export const Icons = styled(Text)`
   margin-bottom: 8;
   font-weight: 600;
   font-size: 14;
+`;
+export const ImageBackgroundMoviePoster = styled(ImageBackground)`
+  width: 100%;
+  height: 190px;
+`;
+export const NavigationWapper = styled(View)`
+  flex: 0.7;
 `;
