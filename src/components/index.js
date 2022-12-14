@@ -20,7 +20,13 @@ import { Suggestions } from './utility/safeArea';
 import { MovieImageWrapper } from './utility/safeArea';
 import { SuggestedMovieImage } from './utility/safeArea';
 import { Header } from './utility/safeArea';
-import { HeaderTitle } from './utility/safeArea';
+import { HeaderTitle, Icons } from './utility/safeArea';
+import {
+  SearchListItem,
+  MovieTitle,
+  SearchListImage,
+} from './utility/safeArea';
+
 export {
   SafeArea,
   MovieImage,
@@ -45,4 +51,8 @@ export {
   SuggestedMovieImage,
   Header,
   HeaderTitle,
+  SearchListItem,
+  MovieTitle,
+  SearchListImage,
+  Icons,
 };

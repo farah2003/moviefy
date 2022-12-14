@@ -141,3 +141,29 @@ export const HeaderTitle = styled(Text)`
   color: #ffffff;
   margin-horizontal: 100;
 `;
+
+export const SearchListItem = styled(View)`
+  flex-direction: row;
+  margin-vertical: 15;
+  padding-horizontal: 24;
+`;
+export const MovieTitle = styled(Text)`
+  font-size: 16;
+  line-height: 24;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 4;
+  margin-bottom: 10;
+`;
+export const SearchListImage = styled(Image)`
+  border-radius: 15;
+  width: 120px;
+  height: 150px;
+  marginbottom: 10px;
+`;
+export const Icons = styled(Text)`
+  color: #ffffff;
+  margin-bottom: 8;
+  font-weight: 600;
+  font-size: 14;
+`;
