@@ -7,7 +7,7 @@ import {
   MaterialCommunityIcons,
   AntDesign,
 } from '@expo/vector-icons';
-import { TextInput } from 'react-native';
+import { TextInput, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
 import { FlatList, Text, Pressable, View } from 'react-native';
@@ -21,11 +21,14 @@ import { MoiveContext } from '../../hooks/context';
 export const SearchScreen = ({ navigation }) => {
   const { setMovieId } = useContext(MoiveContext);
   const [value, setValue] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   let [data, setData] = useState([]);
   useEffect(() => {
     setValue('');
   }, []);
   fetchMovies = async () => {
+    setLoading(true);
     let searchedList = [];
     try {
       const {
@@ -44,8 +47,12 @@ export const SearchScreen = ({ navigation }) => {
         });
       });
       setData(searchedList);
+      setLoading(false);
+      setError(false);
     } catch (e) {
-      console.log(e);
+      setData([]);
+      setLoading(false);
+      setError(true);
     }
   };
 
@@ -148,11 +155,23 @@ export const SearchScreen = ({ navigation }) => {
         />
         <Octicons name='search' size={26} color={'#67686D'} />
       </Search>
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
+      <>
+        {loading ? (
+          <ActivityIndicator size='large' color='#FFFF' />
+        ) : (
+          <>
+            {error ? (
+              <Text>Error</Text>
+            ) : (
+              <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id}
+              />
+            )}
+          </>
+        )}
+      </>
     </SafeArea>
   );
 };
