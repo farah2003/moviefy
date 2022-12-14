@@ -147,7 +147,7 @@ export const HeaderTitle = styled(Text)`
   line-height: 20;
   font-weight: 600;
   color: #ffffff;
-  margin-horizontal: 100;
+  margin-horizontal: 120;
 `;
 
 export const SearchListItem = styled(View)`

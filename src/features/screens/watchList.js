@@ -7,7 +7,7 @@ export const WatchlistScreen = () => {
     <SafeArea>
       <Header>
         <Ionicons name='chevron-back' size={24} color='#FFFFFF' />
-        <HeaderTitle>Watch List</HeaderTitle>
+        <HeaderTitle style={{ marginHorizontal: 100 }}>Watch List</HeaderTitle>
       </Header>
       <View style={styles.content}>
         <Image

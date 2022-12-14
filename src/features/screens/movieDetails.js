@@ -73,7 +73,7 @@ export const MovieDetails = ({
           name='favorite'
           size={26}
           color='#FFFF'
-          style={{ marginTop: 3, marginLeft: 40 }}
+          style={{ marginTop: 3 }}
           width='327'
           height='35'
         />
