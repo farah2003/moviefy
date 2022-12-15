@@ -1,3 +1,4 @@
+import { Theme } from '../../theme';
 const creatTabBarLableStyle = () => {
   return {
     fontSize: 12,
@@ -7,20 +8,20 @@ const creatTabBarLableStyle = () => {
 
 const createTabBarIconStyle = () => {
   return {
-    color: '#67686D',
+    color: Theme.color.secandary,
     fontSize: 24,
   };
 };
 
 export const appTabsStyle = () => {
   return {
-    tabBarActiveTintColor: '#0296E5',
+    tabBarActiveTintColor: Theme.color.active,
     tabBarIconStyle: createTabBarIconStyle,
     tabBarStyle: {
-      backgroundColor: '#242A32',
+      backgroundColor: Theme.color.background,
       height: 60,
       paddingBottom: 7,
-      borderTopColor: '#0296E5',
+      borderTopColor: Theme.color.active,
     },
     tabBarLabelStyle: creatTabBarLableStyle,
   };

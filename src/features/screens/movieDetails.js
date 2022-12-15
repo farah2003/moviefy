@@ -14,6 +14,7 @@ import {
   ImageBackgroundMoviePoster,
   HeaderTitle,
 } from '../../components/index';
+import { Theme } from '../../theme';
 import { MovieInfoNavigtor } from '../../navigation/index';
 
 export const MovieDetails = ({
@@ -71,14 +72,14 @@ export const MovieDetails = ({
         <Ionicons
           name='chevron-back'
           size={24}
-          color='#FFFFFF'
+          color={Theme.color.primary}
           onPress={() => navigation.goBack()}
         />
         <HeaderTitle>Details</HeaderTitle>
         <Fontisto
           name='favorite'
           size={26}
-          color='#FFFF'
+          color={Theme.color.primary}
           style={{ marginTop: 3 }}
           width='327'
           height='35'
@@ -105,7 +106,7 @@ export const MovieDetails = ({
             <Feather
               name='calendar'
               size={20}
-              color='#92929D'
+              color={Theme.color.secandary}
               style={{ marginRight: 10 }}
             />{' '}
             {year}
@@ -113,14 +114,14 @@ export const MovieDetails = ({
             <Feather
               name='clock'
               size={20}
-              color='#92929D'
+              color={Theme.color.secandary}
               style={{ marginRight: 10 }}
             />{' '}
             139 Minutes {'  '}| {'  '}
             <MaterialCommunityIcons
               name='ticket-outline'
               size={20}
-              color='#92929D'
+              color={Theme.color.secandary}
               style={{ marginRight: 10 }}
             />{' '}
             {category}
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     fontWeight: '600',
     lineHeight: 27,
-    color: '#ffff',
+    color: Theme.color.primary,
     marginLeft: 10,
   },
   info: {
@@ -158,8 +159,7 @@ const styles = StyleSheet.create({
   },
   textInfo: {
     fontSize: 14,
-    color: '#92929D',
-    fontFamily: 'Montserrat',
+    color: Theme.color.secandary,
     marginBottom: 10,
   },
 });

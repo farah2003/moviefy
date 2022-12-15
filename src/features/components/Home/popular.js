@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ImageGrid } from './imageGrid';
 import { Text, ActivityIndicator } from 'react-native';
+import { Theme } from '../../../theme';
+
 export const Popular = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +39,7 @@ export const Popular = ({ navigation }) => {
   return (
     <>
       {loading ? (
-        <ActivityIndicator size='large' color='#FFFF' />
+        <ActivityIndicator size='large' color={Theme.color.primary} />
       ) : (
         <>
           {error ? (

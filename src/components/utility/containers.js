@@ -1,15 +1,16 @@
 import { StatusBar, SafeAreaView, View, ImageBackground } from 'react-native';
 import styled from 'styled-components/native';
 import { Svg } from 'react-native-svg';
+import { Theme } from '../../theme';
 
 export const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  background-color: #242a32;
+  background-color: ${Theme.color.background};
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 export const Container = styled(View)`
   flex: 1;
-  background-color: #242a32;
+  background-color: ${Theme.color.background};
 `;
 export const MovieContainer = styled(View)`
   margin-horizontal: 9px;
@@ -22,7 +23,7 @@ export const CastContainer = styled(View)`
 `;
 
 export const Search = styled(View)`
-  background-color: #3a3f47;
+  background-color: ${Theme.color.secandaryBackground};
   width: 90%;
   height: 45;
   margin-horizontal: 20;
@@ -35,7 +36,7 @@ export const Search = styled(View)`
 `;
 export const AboutMovieView = styled(View)`
   flex: 1;
-  background-color: #242a32;
+  background-color: ${Theme.color.background};
   padding: 29px;
 `;
 

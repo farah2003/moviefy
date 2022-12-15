@@ -19,6 +19,7 @@ import {
   MovieImageWrapper,
   SuggestedMovieImage,
 } from '../../components/index';
+import { Theme } from '../../theme';
 
 import { MoiveContext } from '../../hooks/context';
 import { CategoriesNavigator } from '../../navigation/index';
@@ -32,8 +33,8 @@ const Item = ({ src, number }) => (
     />
     <NumberSvg>
       <TextSvg
-        fill='#242A32'
-        stroke='#0296E5'
+        fill={Theme.color.background}
+        stroke={Theme.color.active}
         fontSize={100}
         fontWeight='bold'
         x={25}
@@ -105,16 +106,16 @@ export const HomeScreen = ({ navigation }) => {
       <Search>
         <TextInput
           placeholder='Search'
-          placeholderTextColor='#67686D'
+          placeholderTextColor={Theme.color.secandary}
           onFocus={() => navigation.navigate('Search')}
           width='80%'
         />
-        <Octicons name='search' size={26} color='#67686D' />
+        <Octicons name='search' size={26} color={Theme.color.secandary} />
       </Search>
 
       <NavigationWapper>
         {loading ? (
-          <ActivityIndicator size='large' color='#FFFF' />
+          <ActivityIndicator size='large' color={Theme.color.primary} />
         ) : (
           <>
             {error ? (

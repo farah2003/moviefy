@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ActivityIndicator, Text } from 'react-native';
 import { ImageGrid } from './imageGrid';
+import { Theme } from '../../../theme';
 
 export const NowPlaying = ({ navigation }) => {
   const [data, setData] = useState([]);
@@ -37,7 +38,7 @@ export const NowPlaying = ({ navigation }) => {
   return (
     <>
       {loading ? (
-        <ActivityIndicator size='large' color='#FFFF' />
+        <ActivityIndicator size='large' color={Theme.color.primary} />
       ) : (
         <>
           {error ? (

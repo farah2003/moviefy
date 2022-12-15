@@ -8,6 +8,7 @@ import {
   Group,
   SubDescribtion,
 } from '../../components';
+import { Theme } from '../../theme';
 
 export const WatchlistScreen = ({ navigation }) => {
   return (
@@ -16,7 +17,7 @@ export const WatchlistScreen = ({ navigation }) => {
         <Ionicons
           name='chevron-back'
           size={24}
-          color='#FFFFFF'
+          color={Theme.color.primary}
           onPress={() => navigation.goBack()}
         />
         <HeaderTitle style={{ marginHorizontal: 100 }}>Watch List</HeaderTitle>

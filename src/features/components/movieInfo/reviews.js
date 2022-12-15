@@ -12,6 +12,7 @@ import {
   Description,
 } from '../../../components/index';
 import { MoiveContext } from '../../../hooks/context';
+import { Theme } from '../../../theme';
 
 export const Reviews = () => {
   const { movieId } = useContext(MoiveContext);
@@ -76,7 +77,7 @@ export const Reviews = () => {
   return (
     <>
       {loading ? (
-        <ActivityIndicator size='large' color='#FFFF' />
+        <ActivityIndicator size='large' color={Theme.color.primary} />
       ) : (
         <>
           {error ? (

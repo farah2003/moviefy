@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AboutMovieView, OverView } from '../../../components/index';
 import { Text, ActivityIndicator } from 'react-native';
 import { MoiveContext } from '../../../hooks/context';
+import { Theme } from '../../../theme';
 
 export const Overview = () => {
   const { movieId } = useContext(MoiveContext);
@@ -36,7 +37,7 @@ export const Overview = () => {
   return (
     <>
       {loading ? (
-        <ActivityIndicator size='large' color='#FFFF' />
+        <ActivityIndicator size='large' color={Theme.color.primary} />
       ) : (
         <>
           {error ? (

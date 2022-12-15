@@ -15,7 +15,7 @@ import {
   Pressable,
   View,
 } from 'react-native';
-
+import { Theme } from '../../theme';
 import {
   Icons,
   SearchListItem,
@@ -84,14 +84,14 @@ export const SearchScreen = ({ navigation }) => {
           <MovieTitle>{title}</MovieTitle>
           <Icons
             style={{
-              color: '#FF8700',
+              color: Theme.color.star,
               marginTop: 5,
             }}
           >
             <Feather
               name='star'
               size={20}
-              color='#FF8700'
+              color={Theme.color.star}
               style={{ marginRight: 10 }}
             />{' '}
             {vote}
@@ -100,7 +100,7 @@ export const SearchScreen = ({ navigation }) => {
             <MaterialCommunityIcons
               name='ticket-outline'
               size={20}
-              color='#FFFFFF'
+              color={Theme.color.primary}
               style={{ marginRight: 10 }}
             />{' '}
             Action
@@ -109,7 +109,7 @@ export const SearchScreen = ({ navigation }) => {
             <Feather
               name='calendar'
               size={20}
-              color='#FFFFFF'
+              color={Theme.color.primary}
               style={{ marginRight: 10 }}
             />{' '}
             {year}
@@ -118,7 +118,7 @@ export const SearchScreen = ({ navigation }) => {
             <Feather
               name='clock'
               size={20}
-              color='#FFFFFF'
+              color={Theme.color.primary}
               style={{ marginRight: 10 }}
             />{' '}
             139 minutes
@@ -153,25 +153,25 @@ export const SearchScreen = ({ navigation }) => {
         <Ionicons
           name='chevron-back'
           size={24}
-          color='#FFFFFF'
+          color={Theme.color.primary}
           onPress={() => navigation.goBack()}
         />
         <HeaderTitle>Search</HeaderTitle>
-        <AntDesign name='infocirlceo' size={22} color='#FFF' />
+        <AntDesign name='infocirlceo' size={22} color={Theme.color.primary} />
       </Header>
       <Search>
         <TextInput
           placeholder='Search'
-          placeholderTextColor='#67686D'
+          placeholderTextColor={Theme.color.secandary}
           value={value}
           onChangeText={(text) => setValue(text)}
           onSubmitEditing={() => fetchMovies()}
         />
-        <Octicons name='search' size={26} color={'#67686D'} />
+        <Octicons name='search' size={26} color={Theme.color.secandary} />
       </Search>
       <>
         {loading ? (
-          <ActivityIndicator size='large' color='#FFFF' />
+          <ActivityIndicator size='large' color={Theme.color.primary} />
         ) : (
           <>
             {error ? (

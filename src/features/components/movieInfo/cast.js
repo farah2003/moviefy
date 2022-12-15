@@ -3,6 +3,7 @@ import axios from 'axios';
 import { CastImage, CastContainer, Container } from '../../../components/index';
 import { MoiveContext } from '../../../hooks/context';
 import { FlatList, Text, ActivityIndicator } from 'react-native';
+import { Theme } from '../../../theme';
 
 export const Cast = () => {
   const { movieId } = useContext(MoiveContext);
@@ -40,7 +41,7 @@ export const Cast = () => {
           uri: src,
         }}
       />
-      <Text style={{ color: '#ffff' }}>{name}</Text>
+      <Text style={{ color: Theme.color.primary }}>{name}</Text>
     </CastContainer>
   );
 
@@ -56,7 +57,7 @@ export const Cast = () => {
   return (
     <>
       {loading ? (
-        <ActivityIndicator size='large' color='#FFFF' />
+        <ActivityIndicator size='large' color={Theme.color.primary} />
       ) : (
         <>
           {error ? (
