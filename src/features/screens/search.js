@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { SafeArea, Search, Header, HeaderTitle } from '../../components/index';
+import axios from 'axios';
 import {
   Ionicons,
   Octicons,
@@ -7,10 +7,15 @@ import {
   MaterialCommunityIcons,
   AntDesign,
 } from '@expo/vector-icons';
-import { TextInput, ActivityIndicator } from 'react-native';
-import axios from 'axios';
+import {
+  TextInput,
+  ActivityIndicator,
+  FlatList,
+  Text,
+  Pressable,
+  View,
+} from 'react-native';
 
-import { FlatList, Text, Pressable, View } from 'react-native';
 import {
   Icons,
   SearchListItem,
@@ -20,6 +25,10 @@ import {
   Describtion,
   Group,
   SubDescribtion,
+  SafeArea,
+  Search,
+  Header,
+  HeaderTitle,
 } from '../../components/index';
 
 import { MoiveContext } from '../../hooks/context';

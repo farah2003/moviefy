@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { FlatList, Pressable, Text } from 'react-native';
+import { FlatList, Pressable } from 'react-native';
 import { Container, MovieContainer, MovieImage } from '../../../components';
-
 import { MoiveContext } from '../../../hooks/context';
+
 export const ImageGrid = ({ data, navigation }) => {
   const { setMovieId } = useContext(MoiveContext);
   const Item = ({ src }) => (

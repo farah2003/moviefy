@@ -18,7 +18,7 @@ import { MovieInfoNavigtor } from '../../navigation/index';
 
 export const MovieDetails = ({
   route: {
-    params: { name, id },
+    params: { id },
   },
   navigation,
 }) => {

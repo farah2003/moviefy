@@ -28,7 +28,7 @@ export const Reviews = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US&page=1`
         );
         setData(results);
-        console.log(results);
+
         setError(false);
         setLoading(false);
       } catch (e) {
@@ -48,14 +48,19 @@ export const Reviews = () => {
     },
   }) => {
     avatar_path = avatar_path?.slice(1);
+    console.log(avatar_path);
     return (
       <Review>
         <ReivewRightContainer>
-          <Avater
-            source={{
-              uri: avatar_path,
-            }}
-          />
+          {avatar_path ? (
+            <Avater
+              source={{
+                uri: avatar_path,
+              }}
+            />
+          ) : (
+            <Avater source={require('../../../../assets/avatar.jpeg')} />
+          )}
           <Rating>{rating}</Rating>
         </ReivewRightContainer>
         <ReivewLeftContainer>
