@@ -29,6 +29,7 @@ export const ImageGrid = ({ data, navigation }) => {
       <Item src={`${imageBaseUrl}${item.backdrop_path}`} />
     </Pressable>
   );
+
   return (
     <Container>
       <FlatList

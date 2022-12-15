@@ -126,7 +126,6 @@ export const HomeScreen = ({ navigation }) => {
           </>
         )}
       </NavigationWapper>
-
       <CategoriesNavigator />
     </SafeArea>
   );

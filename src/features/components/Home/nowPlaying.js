@@ -9,6 +9,7 @@ export const NowPlaying = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
   useEffect(() => {
     let movies = [];
     const source = axios.CancelToken.source();
