@@ -16,14 +16,19 @@ import {
   SearchListItem,
   MovieTitle,
   SearchListImage,
+  Content,
+  Describtion,
+  Group,
+  SubDescribtion,
 } from '../../components/index';
+
 import { MoiveContext } from '../../hooks/context';
 export const SearchScreen = ({ navigation }) => {
   const { setMovieId } = useContext(MoiveContext);
   const [value, setValue] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  let [data, setData] = useState([]);
+  let [data, setData] = useState(undefined);
   useEffect(() => {
     setValue('');
   }, []);
@@ -163,11 +168,30 @@ export const SearchScreen = ({ navigation }) => {
             {error ? (
               <Text>Error try again later</Text>
             ) : (
-              <FlatList
-                data={data}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id}
-              />
+              <>
+                {data ? (
+                  <>
+                    {data.length ? (
+                      <FlatList
+                        data={data}
+                        renderItem={renderItem}
+                        keyExtractor={(item) => item.id}
+                      />
+                    ) : (
+                      <Content>
+                        <Group
+                          source={require('../../../assets/no-results.png')}
+                        />
+                        <Describtion>sorry, Movie not found</Describtion>
+                        <SubDescribtion>
+                          Find your movie by Type title,{'\n'} categories,
+                          years, etc
+                        </SubDescribtion>
+                      </Content>
+                    )}
+                  </>
+                ) : null}
+              </>
             )}
           </>
         )}
