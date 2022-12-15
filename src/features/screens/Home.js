@@ -115,7 +115,7 @@ export const HomeScreen = ({ navigation }) => {
         ) : (
           <>
             {error ? (
-              <Text>fGHGFH</Text>
+              <Text>Error try again later</Text>
             ) : (
               <FlatList
                 horizontal

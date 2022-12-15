@@ -10,7 +10,6 @@ const creatTabBarLableStyle = {
   textTransform: 'none',
   fontSize: 12,
   fontWeight: '500',
-  fontFamily: 'Poppins',
 };
 const creatTabBarIndicatorStyle = {
   backgroundColor: '#3A3F47',

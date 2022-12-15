@@ -161,7 +161,7 @@ export const SearchScreen = ({ navigation }) => {
         ) : (
           <>
             {error ? (
-              <Text>Error</Text>
+              <Text>Error try again later</Text>
             ) : (
               <FlatList
                 data={data}

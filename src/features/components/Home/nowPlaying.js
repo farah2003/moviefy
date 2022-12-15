@@ -41,7 +41,7 @@ export const NowPlaying = ({ navigation }) => {
       ) : (
         <>
           {error ? (
-            <Text>fhgh</Text>
+            <Text>Error</Text>
           ) : (
             <ImageGrid data={data} navigation={navigation} />
           )}

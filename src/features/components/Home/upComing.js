@@ -41,7 +41,7 @@ export const UpComing = ({ navigation }) => {
       ) : (
         <>
           {error ? (
-            <Text>fhgh</Text>
+            <Text>Error try again later</Text>
           ) : (
             <ImageGrid data={data} navigation={navigation} />
           )}

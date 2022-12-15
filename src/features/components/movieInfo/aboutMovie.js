@@ -37,7 +37,7 @@ export const Overview = () => {
       ) : (
         <>
           {error ? (
-            <Text>fhgh</Text>
+            <Text>Error try again later</Text>
           ) : (
             <AboutMovieView>
               <OverView>{overview}</OverView>

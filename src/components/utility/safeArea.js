@@ -113,7 +113,6 @@ export const Question = styled(Text)`
   font-weight: 700;
   margin-horizontal: 20;
   margin-vertical: 12;
-  font-family: 'Poppins';
 `;
 
 export const NumberSvg = styled(Svg)`
@@ -190,8 +189,8 @@ export const Content = styled(View)`
 `;
 
 export const Group = styled(Image)`
-  width: 70;
-  height: 85;
+  width: 70px;
+  height: 85px;
 `;
 export const Describtion = styled(Text)`
   font-size: 18;
@@ -203,5 +202,5 @@ export const SubDescribtion = styled(Text)`
   font-weight: 500;
   color: #92929d;
   text-align: center;
-  margin-top: 10;
+  margin-top: 10px;
 `;
