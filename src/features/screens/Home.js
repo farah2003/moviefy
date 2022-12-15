@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
   Text,
 } from 'react-native';
+
 import {
   SafeArea,
   Search,
@@ -18,6 +19,7 @@ import {
   MovieImageWrapper,
   SuggestedMovieImage,
 } from '../../components/index';
+
 import { MoiveContext } from '../../hooks/context';
 import { CategoriesNavigator } from '../../navigation/index';
 
@@ -49,6 +51,7 @@ export const HomeScreen = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
   useEffect(() => {
     let movies = [];
     const source = axios.CancelToken.source();
