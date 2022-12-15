@@ -3,11 +3,14 @@ import axios from 'axios';
 import { CastImage, CastContainer, Container } from '../../../components/index';
 import { MoiveContext } from '../../../hooks/context';
 import { FlatList, Text, ActivityIndicator } from 'react-native';
+
 export const Cast = () => {
   const { movieId } = useContext(MoiveContext);
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchCast = async () => {
@@ -29,6 +32,7 @@ export const Cast = () => {
     fetchCast();
     return () => source.cancel();
   }, []);
+
   const Item = ({ src, name }) => (
     <CastContainer>
       <CastImage

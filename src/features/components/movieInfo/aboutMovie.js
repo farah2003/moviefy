@@ -3,11 +3,14 @@ import axios from 'axios';
 import { AboutMovieView, OverView } from '../../../components/index';
 import { Text, ActivityIndicator } from 'react-native';
 import { MoiveContext } from '../../../hooks/context';
+
 export const Overview = () => {
   const { movieId } = useContext(MoiveContext);
+
   const [overview, setOverview] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchDetails = async () => {

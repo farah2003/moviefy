@@ -18,6 +18,7 @@ export const Reviews = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchCast = async () => {
@@ -40,6 +41,7 @@ export const Reviews = () => {
     fetchCast();
     return () => source.cancel();
   }, []);
+
   const Item = ({
     item: {
       author,
