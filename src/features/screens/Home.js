@@ -20,9 +20,9 @@ import {
   SuggestedMovieImage,
 } from '../../components/index';
 import { Theme } from '../../theme';
-
 import { MoiveContext } from '../../hooks/context';
 import { CategoriesNavigator } from '../../navigation/index';
+import { imageBaseUrl } from '../../api';
 
 const Item = ({ src, number }) => (
   <MovieImageWrapper>
@@ -92,10 +92,7 @@ export const HomeScreen = ({ navigation }) => {
           });
         }}
       >
-        <Item
-          number={index}
-          src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
-        />
+        <Item number={index} src={`${imageBaseUrl}${item.backdrop_path}`} />
       </Pressable>
     );
   };

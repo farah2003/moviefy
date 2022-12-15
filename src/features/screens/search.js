@@ -15,7 +15,6 @@ import {
   Pressable,
   View,
 } from 'react-native';
-import { Theme } from '../../theme';
 import {
   Icons,
   SearchListItem,
@@ -30,8 +29,9 @@ import {
   Header,
   HeaderTitle,
 } from '../../components/index';
-
+import { Theme } from '../../theme';
 import { MoiveContext } from '../../hooks/context';
+
 export const SearchScreen = ({ navigation }) => {
   const { setMovieId } = useContext(MoiveContext);
   const [value, setValue] = useState('');
@@ -41,6 +41,7 @@ export const SearchScreen = ({ navigation }) => {
   useEffect(() => {
     setValue('');
   }, []);
+
   fetchMovies = async () => {
     setLoading(true);
     let searchedList = [];
@@ -48,7 +49,7 @@ export const SearchScreen = ({ navigation }) => {
       const {
         data: { results },
       } = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US&query=${value}&page=1&include_adult=false`
+        `https://api.themoviedb.org/3/search/movie?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US&query=${value}&page=1`
       );
       results.map(({ id, title, release_date, vote_average, poster_path }) => {
         let year = new Date(release_date).getFullYear();
@@ -142,7 +143,7 @@ export const SearchScreen = ({ navigation }) => {
           title={item.title}
           vote={item.vote}
           year={item.year}
-          src={`https://image.tmdb.org/t/p/original${item.image}`}
+          src={`${imageBaseUrl}${item.image}`}
         />
       </Pressable>
     );

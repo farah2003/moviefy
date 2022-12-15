@@ -4,6 +4,7 @@ import { CastImage, CastContainer, Container } from '../../../components/index';
 import { MoiveContext } from '../../../hooks/context';
 import { FlatList, Text, ActivityIndicator } from 'react-native';
 import { Theme } from '../../../theme';
+import { imageBaseUrl } from '../../../api';
 
 export const Cast = () => {
   const { movieId } = useContext(MoiveContext);
@@ -47,10 +48,7 @@ export const Cast = () => {
 
   const renderItem = ({ item }) => {
     return (
-      <Item
-        name={item.name}
-        src={`https://image.tmdb.org/t/p/original${item.profile_path} `}
-      />
+      <Item name={item.name} src={`${imageBaseUrl}${item.profile_path} `} />
     );
   };
 

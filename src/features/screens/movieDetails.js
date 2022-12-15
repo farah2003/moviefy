@@ -16,6 +16,7 @@ import {
 } from '../../components/index';
 import { Theme } from '../../theme';
 import { MovieInfoNavigtor } from '../../navigation/index';
+import { imageBaseUrl } from '../../api';
 
 export const MovieDetails = ({
   route: {
@@ -89,13 +90,13 @@ export const MovieDetails = ({
         <ImageBackgroundMoviePoster
           resizeMode='stretch'
           source={{
-            uri: `https://image.tmdb.org/t/p/original${movieImg}`,
+            uri: `${imageBaseUrl}${movieImg}`,
           }}
         ></ImageBackgroundMoviePoster>
         <View style={styles.content}>
           <Image
             source={{
-              uri: `https://image.tmdb.org/t/p/original${posterImg}`,
+              uri: `${imageBaseUrl}${posterImg}`,
             }}
             style={styles.movieImg}
           />

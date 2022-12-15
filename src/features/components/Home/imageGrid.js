@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { FlatList, Pressable } from 'react-native';
 import { Container, MovieContainer, MovieImage } from '../../../components';
 import { MoiveContext } from '../../../hooks/context';
+import { imageBaseUrl } from '../../../api';
 
 export const ImageGrid = ({ data, navigation }) => {
   const { setMovieId } = useContext(MoiveContext);
@@ -25,7 +26,7 @@ export const ImageGrid = ({ data, navigation }) => {
         });
       }}
     >
-      <Item src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`} />
+      <Item src={`${imageBaseUrl}${item.backdrop_path}`} />
     </Pressable>
   );
   return (
