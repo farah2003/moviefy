@@ -25,9 +25,10 @@ export const Reviews = () => {
         const {
           data: { results },
         } = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=0c d5b087887762448dcaa7155b7e23a2&language=en-US&page=1`
+          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US&page=1`
         );
         setData(results);
+        console.log(results);
         setError(false);
         setLoading(false);
       } catch (e) {
@@ -73,7 +74,7 @@ export const Reviews = () => {
       ) : (
         <>
           {error ? (
-            <Text>fhgh</Text>
+            <Text>Error</Text>
           ) : (
             <Container>
               <FlatList
