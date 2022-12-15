@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ImageGrid } from './imageGrid';
 import { Text, ActivityIndicator } from 'react-native';
 import { Theme } from '../../../theme';
+import { moviesTypeApi } from '../../../api';
 
 export const TopRated = ({ navigation }) => {
   const [data, setData] = useState([]);
@@ -10,15 +11,13 @@ export const TopRated = ({ navigation }) => {
   const [error, setError] = useState(false);
   useEffect(() => {
     let movies = [];
+    let api = moviesTypeApi('top_rated');
     const source = axios.CancelToken.source();
     const fetchMovies = async () => {
       try {
         const {
           data: { results },
-        } = await axios.get(
-          'https://api.themoviedb.org/3/movie/top_rated?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US&page=1',
-          { cancelToken: source.token }
-        );
+        } = await axios.get(api, { cancelToken: source.token });
 
         results.map(({ backdrop_path, id, original_title }) => {
           movies.push({ backdrop_path, id, original_title });

@@ -13,6 +13,7 @@ import {
 } from '../../../components/index';
 import { MoiveContext } from '../../../hooks/context';
 import { Theme } from '../../../theme';
+import { movieInformationApi } from '../../../api';
 
 export const Reviews = () => {
   const { movieId } = useContext(MoiveContext);
@@ -23,12 +24,11 @@ export const Reviews = () => {
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchCast = async () => {
+      let api = movieInformationApi(movieId, 'reviews');
       try {
         const {
           data: { results },
-        } = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US&page=1`
-        );
+        } = await axios.get(api);
         setData(results);
 
         setError(false);

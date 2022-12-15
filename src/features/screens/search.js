@@ -31,6 +31,7 @@ import {
 } from '../../components/index';
 import { Theme } from '../../theme';
 import { MoiveContext } from '../../hooks/context';
+import { searchApi } from '../../api';
 
 export const SearchScreen = ({ navigation }) => {
   const { setMovieId } = useContext(MoiveContext);
@@ -45,12 +46,11 @@ export const SearchScreen = ({ navigation }) => {
   fetchMovies = async () => {
     setLoading(true);
     let searchedList = [];
+    let api = searchApi(value);
     try {
       const {
         data: { results },
-      } = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US&query=${value}&page=1`
-      );
+      } = await axios.get(api);
       results.map(({ id, title, release_date, vote_average, poster_path }) => {
         let year = new Date(release_date).getFullYear();
         searchedList.push({

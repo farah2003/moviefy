@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ImageGrid } from './imageGrid';
 import { Text, ActivityIndicator } from 'react-native';
 import { Theme } from '../../../theme';
+import { moviesTypeApi } from '../../../api';
 
 export const Popular = ({ navigation }) => {
   const [data, setData] = useState([]);
@@ -12,13 +13,11 @@ export const Popular = ({ navigation }) => {
     let movies = [];
     const source = axios.CancelToken.source();
     const fetchMovies = async () => {
+      let api = moviesTypeApi('popular');
       try {
         const {
           data: { results },
-        } = await axios.get(
-          'https://api.themoviedb.org/3/movie/popular?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US&page=1',
-          { cancelToken: source.token }
-        );
+        } = await axios.get(api, { cancelToken: source.token });
 
         results.map(({ backdrop_path, id, original_title }) => {
           movies.push({ backdrop_path, id, original_title });

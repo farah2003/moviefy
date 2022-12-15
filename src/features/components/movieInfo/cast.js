@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { CastImage, CastContainer, Container } from '../../../components/index';
-import { MoiveContext } from '../../../hooks/context';
+import { imageBaseUrl, movieInformationApi } from '../../../api';
 import { FlatList, Text, ActivityIndicator } from 'react-native';
+import { MoiveContext } from '../../../hooks/context';
 import { Theme } from '../../../theme';
-import { imageBaseUrl } from '../../../api';
 
 export const Cast = () => {
   const { movieId } = useContext(MoiveContext);
@@ -16,12 +16,11 @@ export const Cast = () => {
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchCast = async () => {
+      let api = movieInformationApi(movieId, 'credits');
       try {
         const {
           data: { cast },
-        } = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=bf42acf712bba686cfff9820897f4edb&language=en-US`
-        );
+        } = await axios.get(api);
         setData(cast);
         setError(false);
         setLoading(false);

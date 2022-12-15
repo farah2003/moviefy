@@ -16,7 +16,7 @@ import {
 } from '../../components/index';
 import { Theme } from '../../theme';
 import { MovieInfoNavigtor } from '../../navigation/index';
-import { imageBaseUrl } from '../../api';
+import { detailsApi, imageBaseUrl } from '../../api';
 
 export const MovieDetails = ({
   route: {
@@ -35,6 +35,7 @@ export const MovieDetails = ({
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchDetails = async () => {
+      let api = detailsApi(id);
       try {
         const {
           data: {
@@ -45,10 +46,7 @@ export const MovieDetails = ({
             vote_average,
             genres,
           },
-        } = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=0cd5b087887762448dcaa7155b7e23a2&language=en-US`,
-          { cancelToken: source.token }
-        );
+        } = await axios.get(api, { cancelToken: source.token });
         let year = release_date.split('-')[0];
         let vote = Math.round(vote_average * 10) / 10;
         setDetails({
