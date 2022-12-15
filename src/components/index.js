@@ -1,40 +1,43 @@
-import { SafeArea } from './utility/safeArea';
-import { MovieImage } from './utility/safeArea';
-import { CastImage } from './utility/safeArea';
-import { CastContainer } from './utility/safeArea';
-import { MovieContainer } from './utility/safeArea';
-import { Search } from './utility/safeArea';
-import { AboutMovieView } from './utility/safeArea';
-import { OverView } from './utility/safeArea';
-import { Container } from './utility/safeArea';
-import { Review } from './utility/safeArea';
-import { Avater } from './utility/safeArea';
-import { Rating } from './utility/safeArea';
-import { ReivewRightContainer } from './utility/safeArea';
-import { ReivewLeftContainer } from './utility/safeArea';
-import { Reviewer } from './utility/safeArea';
-import { Description } from './utility/safeArea';
-import { Question } from './utility/safeArea';
-import { NumberSvg } from './utility/safeArea';
-import { Wapper } from './utility/safeArea';
-import { MovieImageWrapper } from './utility/safeArea';
-import { SuggestedMovieImage } from './utility/safeArea';
-import { Header } from './utility/safeArea';
+import {
+  SafeArea,
+  Container,
+  MovieContainer,
+  CastContainer,
+  Search,
+  AboutMovieView,
+  Review,
+  ReivewRightContainer,
+  ReivewLeftContainer,
+  NumberSvg,
+  Wapper,
+  MovieImageWrapper,
+  Header,
+  SearchListItem,
+  NavigationWapper,
+  Content,
+  ImageBackgroundMoviePoster,
+} from './utility/containers';
+import {
+  MovieImage,
+  CastImage,
+  Avater,
+  SuggestedMovieImage,
+  Group,
+  SearchListImage,
+} from './utility/imageViwers';
+
 import {
   HeaderTitle,
-  Icons,
-  Content,
-  Group,
   Describtion,
   SubDescribtion,
-} from './utility/safeArea';
-import {
-  SearchListItem,
+  Reviewer,
+  Question,
+  Description,
+  Rating,
   MovieTitle,
-  SearchListImage,
-  ImageBackgroundMoviePoster,
-  NavigationWapper,
-} from './utility/safeArea';
+  OverView,
+  Icons,
+} from './utility/typography';
 
 export {
   SafeArea,

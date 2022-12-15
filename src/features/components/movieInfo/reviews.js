@@ -50,7 +50,6 @@ export const Reviews = () => {
     },
   }) => {
     avatar_path = avatar_path?.slice(1);
-    console.log(avatar_path);
     return (
       <Review>
         <ReivewRightContainer>
