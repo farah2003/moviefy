@@ -1,7 +1,15 @@
 import { Text, View, StyleSheet, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { SafeArea, Header, HeaderTitle } from '../../components';
+import {
+  SafeArea,
+  Header,
+  HeaderTitle,
+  Content,
+  Describtion,
+  Group,
+  SubDescribtion,
+} from '../../components';
 
 export const WatchlistScreen = ({ navigation }) => {
   return (
@@ -15,40 +23,13 @@ export const WatchlistScreen = ({ navigation }) => {
         />
         <HeaderTitle style={{ marginHorizontal: 100 }}>Watch List</HeaderTitle>
       </Header>
-      <View style={styles.content}>
-        <Image
-          source={require('../../../assets/Group.png')}
-          style={styles.group}
-        />
-        <Text style={styles.describtion}>There is no movie yet!</Text>
-        <Text style={styles.subDescribtion}>
+      <Content>
+        <Group source={require('../../../assets/Group.png')} />
+        <Describtion>There is no movie yet!</Describtion>
+        <SubDescribtion>
           Find your movie by Type title,{'\n'} categories, years, etc
-        </Text>
-      </View>
+        </SubDescribtion>
+      </Content>
     </SafeArea>
   );
 };
-const styles = StyleSheet.create({
-  content: {
-    flex: 0.9,
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignItems: 'center',
-  },
-  group: {
-    width: 70,
-    height: 85,
-  },
-  describtion: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#FFFFFF',
-  },
-  subDescribtion: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#92929D',
-    textAlign: 'center',
-    marginTop: 10,
-  },
-});

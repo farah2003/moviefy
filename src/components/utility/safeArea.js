@@ -182,3 +182,26 @@ export const ImageBackgroundMoviePoster = styled(ImageBackground)`
 export const NavigationWapper = styled(View)`
   flex: 0.7;
 `;
+export const Content = styled(View)`
+  flex: 0.9;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+`;
+
+export const Group = styled(Image)`
+  width: 70;
+  height: 85;
+`;
+export const Describtion = styled(Text)`
+  font-size: 18;
+  font-weight: 600;
+  color: #ffffff;
+`;
+export const SubDescribtion = styled(Text)`
+  font-size: 14;
+  font-weight: 500;
+  color: #92929d;
+  text-align: center;
+  margin-top: 10;
+`;
